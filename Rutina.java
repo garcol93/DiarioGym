@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Rutina
 {
     private ArrayList<Ejercicio> listaDeEjercicios;
-   private int id;
+    private int id;
 
     /**
      * Constructor for objects of class Rutina
@@ -16,19 +16,19 @@ public class Rutina
     public Rutina()
     {
         listaDeEjercicios = new ArrayList<Ejercicio>();
-        id = 1;
+        id = 1;       
     }
 
     /**
      * metodo añade ejercicio 
      */
-    public void addEjercicio(String nombreEjercicio)
+    public void addEjercicio(String nombreEjercicio,int series,int repeticiones,int peso)
     {
-        Ejercicio nuevoEjercicio = new Ejercicio(nombreEjercicio ,id);
+        Ejercicio nuevoEjercicio = new Ejercicio(nombreEjercicio ,series,repeticiones, peso,id);
         listaDeEjercicios.add(nuevoEjercicio);
-        id++;
+        id++;        
     }
-    
+
     /**
      * imprime detalles rutina
      */
@@ -39,5 +39,6 @@ public class Rutina
             System.out.println(listaDeEjercicios.get(posicionEjercicioActual).getDetallesEjercicio());
             posicionEjercicioActual++;
         }
+        
     }
 }
