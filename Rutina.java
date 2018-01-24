@@ -38,7 +38,6 @@ public class Rutina
         while (posicionEjercicioActual < listaDeEjercicios.size()) {
             System.out.println(listaDeEjercicios.get(posicionEjercicioActual).getDetallesEjercicio());
             posicionEjercicioActual++;
-        }
-        
+        }        
     }
 }
