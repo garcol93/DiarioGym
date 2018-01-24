@@ -61,5 +61,25 @@ public class Rutina
             posicion++;
         }
     }
-       
+
+    public void ordenaMenorPeso()
+    {
+        ArrayList<Ejercicio> coleccion = (ArrayList<Ejercicio>) listaDeEjercicios.clone();
+        Ejercicio menorPeso = coleccion.get(0);
+        int posicion = 0;
+        while (posicion < coleccion.size()) 
+        {
+            if(coleccion.get(posicion).getPeso()<= menorPeso.getPeso()){
+                menorPeso = coleccion.get(posicion);
+            }
+            if(coleccion.size() -1 == posicion)
+            {
+                System.out.println(coleccion.get(posicion).getDetallesEjercicio());
+                coleccion.remove(menorPeso);
+                menorPeso = coleccion.get(0);
+                posicion=-1;
+            }
+            posicion++;
+        }
+    }
 }
