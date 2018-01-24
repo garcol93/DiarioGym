@@ -40,4 +40,26 @@ public class Rutina
             posicionEjercicioActual++;
         }        
     }
+
+    public void ordenaMayorSeries()
+    {
+        ArrayList<Ejercicio> coleccion = (ArrayList<Ejercicio>) listaDeEjercicios.clone();
+        Ejercicio seriesMasAltas = coleccion.get(0);
+        int posicion = 0;
+        while (posicion < coleccion.size()) 
+        {
+            if(coleccion.get(posicion).getSeries()>= seriesMasAltas.getSeries()){
+                seriesMasAltas = coleccion.get(posicion);
+            }
+            if(coleccion.size() -1 == posicion)
+            {
+                System.out.println(coleccion.get(posicion).getDetallesEjercicio());
+                coleccion.remove(seriesMasAltas);
+                seriesMasAltas = coleccion.get(0);
+                posicion=-1;
+            }
+            posicion++;
+        }
+    }
+       
 }
