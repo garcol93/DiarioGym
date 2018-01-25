@@ -41,7 +41,7 @@ public class Rutina
             posicionEjercicioActual++;
         }        
     }
-    
+
     /**
      * imprime lista ordenada de mayor a menor por series
      */
@@ -65,7 +65,7 @@ public class Rutina
             posicion++;
         }
     }
-    
+
     /**
      * imprime lista ordenada de menor a mayor por peso
      */
@@ -89,22 +89,43 @@ public class Rutina
             posicion++;
         }
     }
-    
+
     /**
      * permite cambiar peso indicando el id
      */
     public void cambiarPeso(int id , int peso)
     {   
-    {
-        Iterator<Ejercicio> ite = listaDeEjercicios.iterator();
-        while(ite.hasNext())
         {
-            Ejercicio ejercicio = ite.next();
-            if (ejercicio.getId() == id)
+            Iterator<Ejercicio> ite = listaDeEjercicios.iterator();
+            while(ite.hasNext())
             {
-                ejercicio.setPeso(peso);
+                Ejercicio ejercicio = ite.next();
+                if (ejercicio.getId() == id)
+                {
+                    ejercicio.setPeso(peso);
+                }
             }
         }
     }
+
+    /**
+     * permite eliminar ejercicios con mas repeticiones a las indicadas
+     */
+    public void eliminarEjercMasRepesIndicadas(int repeticiones)
+    {   
+        {   
+            {
+                Iterator<Ejercicio> ite = listaDeEjercicios.iterator();
+                while(ite.hasNext())
+                {
+                    Ejercicio ejercicio = ite.next();
+                    if (ejercicio.getRepeticiones() > repeticiones)
+                    {
+                        ite.remove();
+                    }
+                }
+            }
+        }
     }
 }
+
