@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 /**
  * Write a description of class Rutina here.
  * 
@@ -40,7 +41,10 @@ public class Rutina
             posicionEjercicioActual++;
         }        
     }
-
+    
+    /**
+     * imprime lista ordenada de mayor a menor por series
+     */
     public void ordenaMayorSeries()
     {
         ArrayList<Ejercicio> coleccion = (ArrayList<Ejercicio>) listaDeEjercicios.clone();
@@ -61,7 +65,10 @@ public class Rutina
             posicion++;
         }
     }
-
+    
+    /**
+     * imprime lista ordenada de menor a mayor por peso
+     */
     public void ordenaMenorPeso()
     {
         ArrayList<Ejercicio> coleccion = (ArrayList<Ejercicio>) listaDeEjercicios.clone();
@@ -81,5 +88,23 @@ public class Rutina
             }
             posicion++;
         }
+    }
+    
+    /**
+     * permite cambiar peso indicando el id
+     */
+    public void cambiarPeso(int id , int peso)
+    {   
+    {
+        Iterator<Ejercicio> ite = listaDeEjercicios.iterator();
+        while(ite.hasNext())
+        {
+            Ejercicio ejercicio = ite.next();
+            if (ejercicio.getId() == id)
+            {
+                ejercicio.setPeso(peso);
+            }
+        }
+    }
     }
 }
