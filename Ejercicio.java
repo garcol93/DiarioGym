@@ -32,7 +32,7 @@ public class Ejercicio
         this.id= id;
         volumen = peso * repeticiones * series;
     }
-    
+
     /**
      * devuelve nombre ejercicio
      */
@@ -40,15 +40,15 @@ public class Ejercicio
     {
         return ejercicio;
     }
-    
+
     /**
      * cambio valor ejercicio
      */
     public void setEjercicio(String nombreEjer)
     {
-       this.ejercicio = nombreEjer;
+        this.ejercicio = nombreEjer;
     }
-    
+
     /**
      * devuelve numero series;
      */
@@ -56,7 +56,7 @@ public class Ejercicio
     {
         return series;
     }
-    
+
     /**
      * cambia numero series;
      */
@@ -64,7 +64,7 @@ public class Ejercicio
     {
         this.series = numero;
     }
-    
+
     /**
      * devuelve numero repeticiones;
      */
@@ -72,7 +72,7 @@ public class Ejercicio
     {
         return repeticiones;
     }
-    
+
     /**
      * cambia numero repeticiones;
      */
@@ -80,7 +80,7 @@ public class Ejercicio
     {
         this.repeticiones = numero;
     }
-    
+
     /**
      * devuelve numero repeticiones;
      */
@@ -88,7 +88,7 @@ public class Ejercicio
     {
         return peso;
     }
-    
+
     /**
      * cambia numero repeticiones;
      */
@@ -96,7 +96,15 @@ public class Ejercicio
     {
         this.peso = kg;
     }
-            
+
+    /**
+     * devuelve numero id 
+     */
+    public int getId()
+    {
+        return id;
+    }
+
     /**
      * imprime detalles del erjercicio
      */

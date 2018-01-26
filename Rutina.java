@@ -45,24 +45,25 @@ public class Rutina
     /**
      * imprime lista ordenada de mayor a menor por series
      */
-    public void ordenaMayorSeries()
-    {
+    public void ordenaMayorSeries(){
         ArrayList<Ejercicio> coleccion = (ArrayList<Ejercicio>) listaDeEjercicios.clone();
-        Ejercicio seriesMasAltas = coleccion.get(0);
-        int posicion = 0;
-        while (posicion < coleccion.size()) 
+        int posicionMasSeries = 0;
+        if (coleccion.size() > 0)
         {
-            if(coleccion.get(posicion).getSeries()>= seriesMasAltas.getSeries()){
-                seriesMasAltas = coleccion.get(posicion);
+            while(coleccion.size() > 0)
+            {    
+                Ejercicio ejerMasSeries = coleccion.get(0);
+                int posicion = 0; 
+                while(posicion < coleccion.size()){                
+                    if(coleccion.get(posicion).getSeries() >= ejerMasSeries.getSeries()){
+                        ejerMasSeries = coleccion.get(posicion);
+                        posicionMasSeries = posicion;
+                    }
+                    posicion++;
+                }              
+                System.out.println(coleccion.get(posicionMasSeries).getDetallesEjercicio());
+                coleccion.remove(posicionMasSeries);
             }
-            if(coleccion.size() -1 == posicion)
-            {
-                System.out.println(coleccion.get(posicion).getDetallesEjercicio());
-                coleccion.remove(seriesMasAltas);
-                seriesMasAltas = coleccion.get(0);
-                posicion=-1;
-            }
-            posicion++;
         }
     }
 
@@ -71,23 +72,25 @@ public class Rutina
      */
     public void ordenaMenorPeso()
     {
-        ArrayList<Ejercicio> coleccion = (ArrayList<Ejercicio>) listaDeEjercicios.clone();
-        Ejercicio menorPeso = coleccion.get(0);
-        int posicion = 0;
-        while (posicion < coleccion.size()) 
+        ArrayList<Ejercicio> coleccion = (ArrayList<Ejercicio>) listaDeEjercicios.clone();         
+        int posicionMenosPeso = 0;
+        if (coleccion.size() > 0)
         {
-            if(coleccion.get(posicion).getPeso()<= menorPeso.getPeso()){
-                menorPeso = coleccion.get(posicion);
+            while(coleccion.size() > 0)
+            {    
+                Ejercicio ejerMenosPeso = coleccion.get(0);
+                int posicion = 0; 
+                while(posicion < coleccion.size()){                
+                    if(coleccion.get(posicion).getSeries() <= ejerMenosPeso.getSeries()){
+                        ejerMenosPeso = coleccion.get(posicion);
+                        posicionMenosPeso = posicion;
+                    }
+                    posicion++;
+                }              
+                System.out.println(coleccion.get(posicionMenosPeso).getDetallesEjercicio());
+                coleccion.remove(posicionMenosPeso);
             }
-            if(coleccion.size() -1 == posicion)
-            {
-                System.out.println(coleccion.get(posicion).getDetallesEjercicio());
-                coleccion.remove(menorPeso);
-                menorPeso = coleccion.get(0);
-                posicion=-1;
-            }
-            posicion++;
-        }
+        } 
     }
 
     /**
