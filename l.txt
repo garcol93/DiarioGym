@@ -1,10 +1,10 @@
-pressPalof#3#8#0#aislado
-Sentadilla#3#8#90#basico
-PesoMuerto#3#8#88#multiarticular
-pressBanca#4#10#70#basico
-Estocadas#3#10#50#multiarticular
-CurlFemoral#3#15#25#aislado
-rodillopesas#3#20#0#aislado
-extensionTriceps#3#15#25#aislado
+press palof#3#8#0#aislado
+sentadilla#3#8#90#basico
+peso muerto#3#8#88#multiarticular
+press banca#4#10#70#basico
+estocadas#3#10#50#multiarticular
+curl femoral#3#15#25#aislado
+rodillo pesas#3#20#0#aislado
+extension triceps#3#15#25#aislado
 remo#2#10#80#multiarticular
 dominadas#4#8#30#basico

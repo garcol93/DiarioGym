@@ -3,6 +3,8 @@ import java.util.Iterator;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Map;
+import java.util.TreeMap;
 /**
  * Write a description of class Rutina here.
  * 
@@ -13,7 +15,6 @@ public class Rutina
 {
     private ArrayList<Ejercicio> listaDeEjercicios;
     private int id;
-
     /**
      * Constructor for objects of class Rutina
      */
@@ -157,44 +158,41 @@ public class Rutina
      * imprime ejercicios por tipo
      */
     public void ejerciciosXTipo()
-    {
-        ArrayList<Ejercicio> basicos = new ArrayList<>();
-        ArrayList<Ejercicio> multiarticulares = new ArrayList<>();
-        ArrayList<Ejercicio> aislados = new ArrayList<>();
+    {        
+        Map <String, String> basicos = new TreeMap<String, String>();
+        Map <String, String> aislados = new TreeMap<String, String>();
+        Map <String, String> multiarticulares = new TreeMap<String, String>();
         for(Ejercicio ejercicio: listaDeEjercicios)
         {
             if(ejercicio.getTipo().equals("basico"))
             {
-                basicos.add(ejercicio);
+                basicos.put(ejercicio.getEjercicio(),ejercicio.getDetallesEjercicio());
             }
             if(ejercicio.getTipo().equals("multiarticular"))
             {
-                multiarticulares.add(ejercicio);
+                multiarticulares.put(ejercicio.getEjercicio(),ejercicio.getDetallesEjercicio());
             }
             if(ejercicio.getTipo().equals("aislado"))
             {
-                aislados.add(ejercicio);
+                aislados.put(ejercicio.getEjercicio(),ejercicio.getDetallesEjercicio());
             }
-        }
+        }    
         System.out.println("Ejercicios basicos:");
         System.out.println("");
-        for(Ejercicio ejercicio: basicos)
-        {
-         System.out.println(ejercicio.getDetallesEjercicio());
+        for (Map.Entry<String, String> ejercicio : basicos.entrySet()){           
+            System.out.println(ejercicio.getValue());
         }
         System.out.println("");
         System.out.println("Ejercicios multiarticulares:");
         System.out.println("");
-        for(Ejercicio ejercicio: multiarticulares)
-        {
-         System.out.println(ejercicio.getDetallesEjercicio());
+        for (Map.Entry<String, String> ejercicio : multiarticulares.entrySet()){           
+            System.out.println(ejercicio.getValue());
         }
         System.out.println("");
         System.out.println("Ejercicios aislados:");
         System.out.println("");
-        for(Ejercicio ejercicio: aislados)
-        {
-         System.out.println(ejercicio.getDetallesEjercicio());
+        for (Map.Entry<String, String> ejercicio : aislados.entrySet()){           
+            System.out.println(ejercicio.getValue());
         }
     }
 
