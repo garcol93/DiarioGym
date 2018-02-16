@@ -29,8 +29,9 @@ public class Rutina
                 String nombreEjercicio=arrayStrings[0];
                 int series=Integer.parseInt(arrayStrings[1]);
                 int repeticiones=Integer.parseInt(arrayStrings[2]);
-                int peso=Integer.parseInt(arrayStrings[3]);  
-                addEjercicio(nombreEjercicio, series, repeticiones, peso);
+                int peso=Integer.parseInt(arrayStrings[3]);
+                String tipo = arrayStrings[4];
+                addEjercicio(nombreEjercicio, series, repeticiones, peso, tipo);
             }
             sc.close();
         }
@@ -42,9 +43,9 @@ public class Rutina
     /**
      * metodo añade ejercicio 
      */
-    public void addEjercicio(String nombreEjercicio,int series,int repeticiones,int peso)
+    public void addEjercicio(String nombreEjercicio,int series,int repeticiones,int peso, String tipo)
     {
-        Ejercicio nuevoEjercicio = new Ejercicio(nombreEjercicio ,series,repeticiones, peso,id);
+        Ejercicio nuevoEjercicio = new Ejercicio(nombreEjercicio ,series,repeticiones, peso,tipo ,id);
         listaDeEjercicios.add(nuevoEjercicio);
         id++;                 
     }

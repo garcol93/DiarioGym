@@ -1,4 +1,4 @@
-
+import java.util.HashSet;
 /**
  * Write a description of class ejercicios here.
  * 
@@ -19,16 +19,25 @@ public class Ejercicio
     private int volumen;
     //id ejercicio
     private int id;
+    //tipo basico , multiarticular, aislado
+    private String tipo;
     /**
      * Constructor for objects of class ejercicios
      */
-    public Ejercicio(String nombreEjercicio,int series,int repeticiones,int peso, int id)
+    public Ejercicio(String nombreEjercicio,int series,int repeticiones,int peso,String tipo, int id)
     {
         // initialise instance variables
         ejercicio = nombreEjercicio;
         this.series = series;
         this.repeticiones = repeticiones;
         this.peso = peso;
+        String local = tipo.toLowerCase();
+        if(local.equals("basico")||local.equals("multiarticular")||local.equals("aislado")){
+            this.tipo = tipo;
+        }
+        else{
+            this.tipo = "";
+        }
         this.id= id;
         volumen = peso * repeticiones * series;
     }
@@ -106,11 +115,34 @@ public class Ejercicio
     }
 
     /**
+     * cambia tipo de ejercicio basico , multiarticular, aislado
+     */
+    public void setTipo(String tipo)
+    {
+        String local = tipo.toLowerCase();
+        if(local.equals("basico")||local.equals("multiarticular")||local.equals("aislado")){
+            this.tipo = tipo;
+        }
+        else{
+            this.tipo = "";
+        }
+    }
+    
+    /**
+     * devuelve tipo
+     */
+    public String getTipo()
+    {
+        return tipo;
+    }
+
+    /**
      * imprime detalles del erjercicio
      */
     public String getDetallesEjercicio()
     {
-        String detalles ="ID: "+ id +" "+ ejercicio +" "+ series + "X" + repeticiones +" " + peso +"Kg" +" VOlUMEN :"+ volumen+"Kg";
+        String detalles ="ID: "+ id +" "+ ejercicio +" "+ series + "X" + repeticiones +" " + peso +"Kg" +" VOlUMEN :"+ volumen+"Kg"+ " Tipo: "+ tipo;
         return detalles;
     }
+
 }
