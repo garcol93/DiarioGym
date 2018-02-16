@@ -21,7 +21,7 @@ public class Rutina
     {
         listaDeEjercicios = new ArrayList<Ejercicio>();
         id = 1;      
-         try {
+        try {
             File archivo = new File(txt);
             Scanner sc = new Scanner(archivo);
             while (sc.hasNextLine()) {                                
@@ -152,5 +152,51 @@ public class Rutina
             }
         }
     }
+
+    /**
+     * imprime ejercicios por tipo
+     */
+    public void ejerciciosXTipo()
+    {
+        ArrayList<Ejercicio> basicos = new ArrayList<>();
+        ArrayList<Ejercicio> multiarticulares = new ArrayList<>();
+        ArrayList<Ejercicio> aislados = new ArrayList<>();
+        for(Ejercicio ejercicio: listaDeEjercicios)
+        {
+            if(ejercicio.getTipo().equals("basico"))
+            {
+                basicos.add(ejercicio);
+            }
+            if(ejercicio.getTipo().equals("multiarticular"))
+            {
+                multiarticulares.add(ejercicio);
+            }
+            if(ejercicio.getTipo().equals("aislado"))
+            {
+                aislados.add(ejercicio);
+            }
+        }
+        System.out.println("Ejercicios basicos:");
+        System.out.println("");
+        for(Ejercicio ejercicio: basicos)
+        {
+         System.out.println(ejercicio.getDetallesEjercicio());
+        }
+        System.out.println("");
+        System.out.println("Ejercicios multiarticulares:");
+        System.out.println("");
+        for(Ejercicio ejercicio: multiarticulares)
+        {
+         System.out.println(ejercicio.getDetallesEjercicio());
+        }
+        System.out.println("");
+        System.out.println("Ejercicios aislados:");
+        System.out.println("");
+        for(Ejercicio ejercicio: aislados)
+        {
+         System.out.println(ejercicio.getDetallesEjercicio());
+        }
+    }
+
 }
 
