@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 /**
  * Write a description of class Rutina here.
  * 
@@ -14,10 +17,26 @@ public class Rutina
     /**
      * Constructor for objects of class Rutina
      */
-    public Rutina()
+    public Rutina(String txt)
     {
         listaDeEjercicios = new ArrayList<Ejercicio>();
-        id = 1;       
+        id = 1;      
+         try {
+            File archivo = new File(txt);
+            Scanner sc = new Scanner(archivo);
+            while (sc.hasNextLine()) {                                
+                String[] arrayStrings = sc.nextLine().split("#");
+                String nombreEjercicio=arrayStrings[0];
+                int series=Integer.parseInt(arrayStrings[1]);
+                int repeticiones=Integer.parseInt(arrayStrings[2]);
+                int peso=Integer.parseInt(arrayStrings[3]);  
+                addEjercicio(nombreEjercicio, series, repeticiones, peso);
+            }
+            sc.close();
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -27,7 +46,7 @@ public class Rutina
     {
         Ejercicio nuevoEjercicio = new Ejercicio(nombreEjercicio ,series,repeticiones, peso,id);
         listaDeEjercicios.add(nuevoEjercicio);
-        id++;        
+        id++;                 
     }
 
     /**
@@ -99,13 +118,15 @@ public class Rutina
     public void cambiarPeso(int id , int peso)
     {   
         {
+            boolean parar = false;
             Iterator<Ejercicio> ite = listaDeEjercicios.iterator();
-            while(ite.hasNext())
+            while(ite.hasNext() && parar == false)
             {
                 Ejercicio ejercicio = ite.next();
                 if (ejercicio.getId() == id)
                 {
                     ejercicio.setPeso(peso);
+                    parar = true;
                 }
             }
         }
